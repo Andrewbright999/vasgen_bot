@@ -19,7 +19,7 @@ async def cmd_start(message: Message):
 @dp.message(F.text)
 async def message_with_text(message: Message):
     mess = await message.answer(f"Рисую...")
-    path = await generate_image(prompt=message.text)
+    path = generate_image(prompt=message.text)
     photo = FSInputFile(f"{path}", "rb")
     print(f"Done {message.text}")
     await message.reply_photo(photo)
