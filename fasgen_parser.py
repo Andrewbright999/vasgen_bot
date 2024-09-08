@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 # Укажите путь к вашему ChromeDriver
-chrome_driver_path = "G:\\Projects Python\\fastgenphoto\\chromedriver-win64\\chromedriver.exe"
+chrome_driver_path = "/opt/google/chrome/chromedriver"
 
 # Укажите путь к папке для сохранения загруженных файлов
 download_folder_path = "\downloads"
