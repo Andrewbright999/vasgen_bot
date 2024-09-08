@@ -11,6 +11,16 @@ chrome_driver_path = "G:\\Projects Python\\fastgenphoto\\chromedriver-win64\\chr
 # Укажите путь к папке для сохранения загруженных файлов
 download_folder_path = "\downloads"
 
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+options = Options()
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 # Убедитесь, что папка существует, если нет, создайте её
 if not os.path.exists(download_folder_path):
     os.makedirs(download_folder_path)
@@ -23,6 +33,9 @@ chrome_prefs = {
     "download.directory_upgrade": True,
     "safebrowsing.enabled": True
 }
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_experimental_option("prefs", chrome_prefs)
 
 # Настраиваем Selenium для работы с Chrome

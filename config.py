@@ -1,8 +1,6 @@
 import os
-from dotenv import load_dotenv, dotenv_values 
+from dotenv import load_dotenv
 
 load_dotenv() 
 
 TG_TOKEN = os.getenv("TG_TOKEN")
-
-os.getenv("MY_KEY")
