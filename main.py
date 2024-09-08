@@ -30,7 +30,6 @@ async def message_with_text(message: Message):
 
 
 async def main() -> None:
-    dp.include_routers()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
