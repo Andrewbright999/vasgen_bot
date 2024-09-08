@@ -19,10 +19,17 @@ async def cmd_start(message: Message):
 @dp.message(F.text)
 async def message_with_text(message: Message):
     mess = await message.answer(f"Рисую...")
-    path = generate_image(prompt=message.text)
-    photo = FSInputFile(f"{path}", "rb")
-    print(f"Done {message.text}")
-    await message.reply_photo(photo)
+    try:
+        path = generate_image(prompt=message.text)
+        if path:
+            # Отправка изображения
+            photo = FSInputFile(f"{path}", "rb")
+            await message.answer_photo(photo=photo)
+            # Удаляем изображение после отправки
+        else:
+            await message.answer('Ошибка при создании изображения.')
+    except Exception as e:
+        await message.answer(f'Произошла ошибка: {e}')
     await mess.delete()
 
         
