@@ -29,6 +29,7 @@ async def message_with_text(message: Message):
         else:
             await message.answer('Ошибка при создании изображения.')
     except Exception as e:
+        print(e)
         await message.answer(f'Произошла ошибка: {e}')
     await mess.delete()
 
