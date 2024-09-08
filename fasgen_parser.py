@@ -17,10 +17,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-options = Options()
-
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
 # Убедитесь, что папка существует, если нет, создайте её
 if not os.path.exists(download_folder_path):
     os.makedirs(download_folder_path)
@@ -39,8 +35,7 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_experimental_option("prefs", chrome_prefs)
 
 # Настраиваем Selenium для работы с Chrome
-service = Service(chrome_driver_path)
-
+service = Service(ChromeDriverManager().install())
 # Глобальный объект браузера
 driver = None
 
