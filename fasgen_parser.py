@@ -10,7 +10,9 @@ from selenium.webdriver.common.by import By
 chrome_driver_path = "/opt/google/chrome/chromedriver"
 
 # Укажите путь к папке для сохранения загруженных файлов
-download_folder_path = "/root/bots/vasgen_bot"
+download_folder_path = os.path.dirname()
+"/root/bots/vasgen_bot"
+
 
 # Убедитесь, что папка существует, если нет, создайте её
 if not os.path.exists(download_folder_path):
