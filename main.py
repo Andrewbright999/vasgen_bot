@@ -21,6 +21,7 @@ async def message_with_text(message: Message):
     mess = await message.answer(f"Рисую...")
     try:
         path = generate_image(prompt=message.text)
+        print(path)
         if path:
             # Отправка изображения
             photo = FSInputFile(f"{path}", "rb")
