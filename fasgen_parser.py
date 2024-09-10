@@ -10,12 +10,7 @@ from selenium.webdriver.common.by import By
 chrome_driver_path = "/opt/google/chrome/chromedriver"
 
 # Укажите путь к папке для сохранения загруженных файлов
-download_folder_path = "/root/bots/vasgen_bot/downloads"
-
-
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+download_folder_path = "/root/bots/vasgen_bot"
 
 # Убедитесь, что папка существует, если нет, создайте её
 if not os.path.exists(download_folder_path):
@@ -81,6 +76,7 @@ def generate_image(prompt: str):
 
         # Путь к загруженному файлу
         files = os.listdir(download_folder_path)
+        print(files)
         for file in files:
             if file.endswith(".webp"):  # Предполагаем, что исходный файл имеет расширение .webp
                 old_file_path = os.path.join(download_folder_path, file)
