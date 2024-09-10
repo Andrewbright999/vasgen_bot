@@ -54,6 +54,7 @@ def generate_image(prompt: str):
             init_browser()
 
         # Находим поле для ввода текста для промта
+        print(" Находим поле для ввода текста для промта")
         prompt_input = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[1]/div/div/textarea')
 
         # Очищаем поле ввода
@@ -64,18 +65,26 @@ def generate_image(prompt: str):
 
         # Находим кнопку для генерации изображения и кликаем на неё
         generate_button = driver.find_element(By.XPATH, '//*[@id="submit-btn-5dt"]')
+        print("Находим кнопку для генерации изображения и кликаем на неё")
         generate_button.click()
+        print("Клик")
+        
 
         # Ждем генерацию изображения
         time.sleep(3)  # Увеличиваем время ожидания, если это необходимо
 
         # Находим кнопку для скачивания изображения
+        print("Находим кнопку для скачивания изображения")
+        
         download_button = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[2]/button')
+
         download_button.click()
+        print("Скачал")
+        
 
         # Ждем, пока изображение будет загружено
         time.sleep(3)  # Увеличиваем время ожидания
-
+        
         # Путь к загруженному файлу
         files = os.listdir(download_folder_path)
         print(files)
