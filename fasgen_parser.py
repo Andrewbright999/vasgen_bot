@@ -3,13 +3,19 @@ import os, time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 # Укажите путь к вашему ChromeDriver
 chrome_driver_path = "/opt/google/chrome/chromedriver"
 
 # Укажите путь к папке для сохранения загруженных файлов
-download_folder_path = "root/bots/vasgen_bot/downloads"
+download_folder_path = "/root/bots/vasgen_bot/downloads"
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 # Убедитесь, что папка существует, если нет, создайте её
 if not os.path.exists(download_folder_path):
@@ -23,7 +29,7 @@ chrome_prefs = {
     "download.directory_upgrade": True,
     "safebrowsing.enabled": True
 }
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_experimental_option("prefs", chrome_prefs)
