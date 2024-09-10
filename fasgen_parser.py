@@ -29,7 +29,7 @@ chrome_prefs = {
     "download.directory_upgrade": True,
     "safebrowsing.enabled": True
 }
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_experimental_option("prefs", chrome_prefs)
@@ -84,17 +84,15 @@ def generate_image(prompt: str):
         for file in files:
             if file.endswith(".webp"):  # Предполагаем, что исходный файл имеет расширение .webp
                 old_file_path = os.path.join(download_folder_path, file)
-                return old_file_path
-                
-                # new_file_path = os.path.join(download_folder_path, "generated_image.jpeg")
+                new_file_path = os.path.join(download_folder_path, "generated_image.jpeg")
 
-                # # Открываем изображение и сохраняем его в формате JPEG
-                # with Image.open(old_file_path) as img:
-                #     img.convert("RGB").save(new_file_path, "JPEG")
+                # Открываем изображение и сохраняем его в формате JPEG
+                with Image.open(old_file_path) as img:
+                    img.convert("RGB").save(new_file_path, "JPEG")
 
-                # # Удаляем исходный файл (если нужно)
-                # os.remove(old_file_path)
-                # return new_file_path
+                # Удаляем исходный файл (если нужно)
+                os.remove(old_file_path)
+                return new_file_path
 
     except Exception as e:
         print(f"Ошибка при создании изображения: {e}")
