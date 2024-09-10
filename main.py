@@ -22,13 +22,13 @@ async def message_with_text(message: Message):
     try:
         path = generate_image(prompt=message.text)
         print(path)
-        if path:
+        # if path:
             # Отправка изображения
-            photo = FSInputFile(f"{path}", "rb")
-            await message.answer_photo(photo=photo)
+        photo = FSInputFile(f"{path}", "rb")
+        await message.answer_photo(photo=photo)
             # Удаляем изображение после отправки
-        else:
-            await message.answer('Ошибка при создании изображения.')
+        # else:
+            # await message.answer('Ошибка при создании изображения.')
     except Exception as e:
         print(e)
         await message.answer(f'Произошла ошибка: {e}')
