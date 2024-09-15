@@ -47,7 +47,7 @@ def init_browser():
         cookies = {
             'name': '_ga_7QY9GCL0DC',
             'value': 'GA1.1.1435541569.1726432939',  # Замените на ваше значение
-            'domain': '.fastflux.ai'  # Укажите нужный домен
+            'domain': 'fastflux.ai'  # Укажите нужный домен
         }
         driver.add_cookie(cookies)
 
