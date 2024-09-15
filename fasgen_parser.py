@@ -95,4 +95,4 @@ def generate_image(prompt: str):
 
     except Exception as e:
         print(f"Ошибка при создании изображения: {e}")
-        return None
+        return e
