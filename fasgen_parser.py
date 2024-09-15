@@ -29,6 +29,8 @@ chrome_prefs = {
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument("--disable-gpu") 
+chrome_options.add_argument("--window-size=1920x1080")
 chrome_options.add_experimental_option("prefs", chrome_prefs)
 
 # Настраиваем Selenium для работы с Chrome
@@ -81,6 +83,7 @@ def generate_image(prompt: str):
         for file in files:
             if file.endswith(".webp"):  # Предполагаем, что исходный файл имеет расширение .webp
                 old_file_path = os.path.join(download_folder_path, file)
+                print(old_file_path)
                 return old_file_path
                 
                 new_file_path = os.path.join(download_folder_path, "generated_image.jpeg")
