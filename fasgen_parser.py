@@ -56,7 +56,7 @@ def generate_image(prompt: str):
             init_browser()
 
         # Находим поле для ввода текста для промта
-        prompt_input = driver.find_element(By.CSS_SELECTOR, '#root > div > div > div.flex.flex-col.items-center.w-full.max-w-\[600px\].flex-none > div > div > textarea')
+        prompt_input = driver.find_element(By.CSS_SELECTOR, '#root textarea')
 
         # Очищаем поле ввода
         prompt_input.clear()
