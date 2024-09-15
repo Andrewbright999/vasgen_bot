@@ -49,7 +49,7 @@ def init_browser():
             'value': 'GA1.1.1435541569.1726432939',  # Замените на ваше значение
             'domain': '.fastflux.ai'  # Укажите нужный домен
         }
-        driver.add_cookie(cookie)
+        driver.add_cookie(cookies)
 
         # Теперь можно перезагрузить страницу или перейти к нужному URL
         # driver.get('https://example.com/protected')  # Пример использования страницы с куки
