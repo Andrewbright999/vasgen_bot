@@ -43,6 +43,19 @@ def init_browser():
     global driver
     if driver is None:
         driver = webdriver.Chrome(service=service, options=chrome_options)
+        cookies = driver.get_cookies()
+        cookie = {
+            'name': '_ga_7QY9GCL0DC',
+            'value': 'GA1.1.1435541569.1726432939',  # Замените на ваше значение
+            'domain': '.fastflux.ai'  # Укажите нужный домен
+        }
+        driver.add_cookie(cookie)
+
+        # Теперь можно перезагрузить страницу или перейти к нужному URL
+        # driver.get('https://example.com/protected')  # Пример использования страницы с куки
+
+        # Закрываем брауз
+        # print("Текущие куки:", cookies)
         driver.get("https://fastflux.ai/")
         time.sleep(5)  # Ожидание загрузки сайта
 

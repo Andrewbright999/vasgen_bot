@@ -1,21 +1,20 @@
-import requests
-from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
-# URL страницы, которую нужно загрузить
-url = 'https://fastflux.ai/'
+# Указываем путь к драйверу вашего браузера (например, для Chrome)
+chrome_options = Options()
+service = Service(ChromeDriverManager().install())
 
-# Отправляем GET-запрос на URL
-response = requests.get(url)
+driver = webdriver.Chrome(service=service, options=chrome_options)
+# Открываем страницу
+driver.get('https://fastflux.ai/')  # Замените на нужный URL
 
-# Проверяем статус-код ответа (200 означает успешное получение страницы)
-if response.status_code == 200:
-    # Получаем полный HTML-код
-    html_content = response.text
-    
-    # Создаем объект BeautifulSoup для более удобной работы с HTML
-    soup = BeautifulSoup(html_content, 'html.parser')
-    
-    # Выводим весь HTML-код
-    print(soup.prettify())
-else:
-    print(f"Ошибка: не удалось загрузить страницу. Статус-код: {response.status_code}")
+# Получение всех куки на странице
+cookies = driver.get_cookies()
+print("Текущие куки:", cookies)
+
+# Закрываем браузер
+driver.quit()
