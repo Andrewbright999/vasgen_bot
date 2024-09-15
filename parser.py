@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL страницы, которую нужно загрузить
-url = 'https://example.com'
+url = 'https://fastflux.ai/'
 
 # Отправляем GET-запрос на URL
 response = requests.get(url)
